@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#172554">
+  <title>Vocabulary Master — A2</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="brand-icon">V</div>
+        <div><strong>Vocab<span>Master</span></strong><small>ENGLISH A2 • SELF STUDY</small></div>
+      </div>
+      <div class="student-card">
+        <div class="avatar">S</div>
+        <div><b>My Learning Space</b><small>Vocabulary • Level A2</small></div>
+      </div>
+      <nav class="nav">
+        <button class="nav-item active" data-page="dashboard"><span>⌂</span> Beranda</button>
+        <button class="nav-item" data-page="learn"><span>▤</span> Belajar Kosakata</button>
+        <button class="nav-item" data-page="flashcards"><span>▣</span> Flashcards</button>
+        <button class="nav-item" data-page="quiz"><span>✎</span> Latihan & Kuis</button>
+        <button class="nav-item" data-page="verbs"><span>↗</span> Verb Forms</button>
+        <button class="nav-item" data-page="saved"><span>♡</span> Kata Favorit</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="side-tip"><span>💡</span><b>Study tip</b><p>Belajar sedikit setiap hari lebih efektif daripada menghafal banyak kata sekaligus.</p></div>
+        <small class="version">VOCABULARY MASTER BOOK • A2</small>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="menu-btn" id="menuBtn" aria-label="Buka menu">☰</button>
+        <div><span class="eyebrow">YOUR PERSONAL VOCABULARY SPACE</span><h1 id="pageTitle">Selamat belajar! 👋</h1></div>
+        <div class="top-actions"><span class="level-pill">LEVEL A2</span><button class="icon-btn" id="soundToggle" title="Suara">🔊</button></div>
+      </header>
+
+      <section class="page active" id="dashboardPage">
+        <div class="welcome-banner">
+          <div class="welcome-copy"><span class="banner-tag">SMALL STEPS, BIG PROGRESS</span><h2>Build your English<br>vocabulary every day.</h2><p>Kenali kata, pahami artinya, lalu gunakan dalam latihan.</p><button class="primary-btn" data-go="learn">Mulai belajar <span>→</span></button></div>
+          <div class="banner-art"><div class="orbit orbit1"></div><div class="orbit orbit2"></div><div class="book-emoji">📚</div><span class="float-word w1">learn</span><span class="float-word w2">practice</span><span class="float-word w3">grow</span></div>
+        </div>
+        <div class="stats-grid">
+          <article class="stat-card"><div class="stat-icon blue">▤</div><div><span>Total vocabulary</span><strong id="totalWords">444</strong><small>kata dalam buku</small></div></article>
+          <article class="stat-card"><div class="stat-icon green">✓</div><div><span>Sudah dikuasai</span><strong id="learnedCount">0</strong><small>kata ditandai learned</small></div></article>
+          <article class="stat-card"><div class="stat-icon yellow">♡</div><div><span>Kata favorit</span><strong id="favoriteCount">0</strong><small>tersimpan untuk diulang</small></div></article>
+          <article class="stat-card"><div class="stat-icon purple">✦</div><div><span>Target harian</span><strong><span id="dailyDone">0</span>/<span id="dailyTargetText">10</span></strong><small>kata dipelajari hari ini</small></div></article>
+        </div>
+        <div class="dashboard-grid">
+          <section class="panel progress-panel">
+            <div class="section-heading"><div><span class="eyebrow">YOUR PROGRESS</span><h3>Perkembangan belajar</h3></div><span class="mini-badge">A2 Journey</span></div>
+            <div class="progress-number"><strong id="progressPercent">0%</strong><span>vocabulary mastered</span></div>
+            <div class="progress-track"><div id="overallProgress" class="progress-fill"></div></div>
+            <div class="progress-foot"><span id="progressLabel">Mulai langkah pertamamu.</span><span id="learnedFraction">0 / 444</span></div>
+            <div class="daily-box"><div><b>🎯 Target hari ini</b><p>Pelajari 10 kata baru setiap hari.</p></div><label class="target-control">Target <select id="dailyTarget"><option>5</option><option selected>10</option><option>15</option><option>20</option></select></label></div>
+          </section>
+          <section class="panel quick-panel">
+            <div class="section-heading"><div><span class="eyebrow">QUICK ACCESS</span><h3>Lanjutkan belajar</h3></div></div>
+            <button class="quick-link" data-go="flashcards"><span class="quick-icon">▣</span><span><b>Flashcards</b><small>Hafalkan kata dengan kartu</small></span><span class="arrow">→</span></button>
+            <button class="quick-link" data-go="quiz"><span class="quick-icon peach">✎</span><span><b>Vocabulary Quiz</b><small>Uji pemahamanmu</small></span><span class="arrow">→</span></button>
+            <button class="quick-link" data-go="verbs"><span class="quick-icon mint">↗</span><span><b>Verb Forms</b><small>Pelajari V1, V2, V3, V-ing</small></span><span class="arrow">→</span></button>
+          </section>
+        </div>
+        <section class="panel category-overview"><div class="section-heading"><div><span class="eyebrow">EXPLORE THE BOOK</span><h3>Belajar berdasarkan kategori</h3></div><button class="text-btn" data-go="learn">Lihat semua →</button></div><div class="category-cards" id="categoryCards"></div></section>
+      </section>
+
+      <section class="page" id="learnPage">
+        <div class="page-intro"><div><span class="eyebrow">VOCABULARY LIBRARY</span><h2>Jelajahi kosakata</h2><p>Cari kata, lihat arti, dengarkan pengucapan, dan tandai kata yang sudah kamu kuasai.</p></div><div class="word-counter"><b id="filteredCount">444</b><small>kata ditemukan</small></div></div>
+        <div class="filter-bar"><div class="search-wrap"><span>⌕</span><input id="searchInput" type="search" placeholder="Cari kata bahasa Inggris atau artinya..."></div><select id="categoryFilter"><option value="all">Semua kategori</option></select><select id="statusFilter"><option value="all">Semua status</option><option value="new">Belum dipelajari</option><option value="learned">Sudah dikuasai</option><option value="core">Prioritas hafalan</option></select></div>
+        <div class="word-table-wrap"><table class="word-table"><thead><tr><th>ENGLISH</th><th>ARTI INDONESIA</th><th>KATEGORI</th><th>AKSI</th></tr></thead><tbody id="wordRows"></tbody></table><div id="emptyState" class="empty-state" hidden>Belum ada kata yang cocok. Coba kata kunci lain.</div></div>
+        <div class="pagination"><span id="pageInfo">Halaman 1</span><div><button id="prevPage" class="outline-btn">← Sebelumnya</button><button id="nextPage" class="outline-btn">Berikutnya →</button></div></div>
+      </section>
+
+      <section class="page" id="flashcardsPage">
+        <div class="page-intro"><div><span class="eyebrow">MEMORY TRAINING</span><h2>Flashcards</h2><p>Ingat arti kata sebelum membalik kartu. Gunakan tombol suara untuk mendengarkan pengucapan.</p></div><span class="mini-badge">Active Recall</span></div>
+        <div class="flash-controls"><select id="flashCategory"><option value="all">Semua kategori</option></select><label class="check-label"><input type="checkbox" id="flashCore"> Prioritas hafalan saja</label></div>
+        <div class="flash-area"><div class="flash-progress"><span id="flashPosition">Kartu 1</span><span id="flashRemaining">444 kata</span></div><button class="flash-card" id="flashCard"><span class="card-label" id="cardLabel">ENGLISH WORD</span><strong id="cardWord">Welcome</strong><span class="card-meaning" id="cardMeaning">Klik kartu untuk melihat arti</span><span class="flip-hint">↻ Klik untuk membalik kartu</span></button><div class="flash-actions"><button class="outline-btn" id="flashPrev">← Sebelumnya</button><button class="sound-btn" id="flashSpeak">🔊 Dengarkan</button><button class="primary-btn" id="flashNext">Berikutnya →</button></div><div class="flash-mark"><button id="flashLearned" class="mark-btn">✓ Saya sudah menguasai kata ini</button><button id="flashFavorite" class="favorite-btn">♡ Simpan favorit</button></div></div>
+      </section>
+
+      <section class="page" id="quizPage">
+        <div class="page-intro"><div><span class="eyebrow">TEST YOUR KNOWLEDGE</span><h2>Vocabulary Quiz</h2><p>Pilih arti yang paling tepat. Soal diambil dari daftar kosakata pada Vocabulary Master Book.</p></div><span class="mini-badge">Practice makes progress</span></div>
+        <div class="quiz-setup panel" id="quizSetup"><div><h3>Siap untuk berlatih?</h3><p>Pilih kategori dan jumlah soal. Kuis akan memilih kosakata secara acak.</p></div><div class="setup-controls"><label>Kategori<select id="quizCategory"><option value="all">Semua kategori</option></select></label><label>Jumlah soal<select id="quizLength"><option>5</option><option selected>10</option><option>15</option><option>20</option></select></label></div><button class="primary-btn" id="startQuiz">Mulai kuis →</button></div>
+        <div class="quiz-box panel" id="quizBox" hidden><div class="quiz-top"><span id="quizProgressText">QUESTION 1 / 10</span><span class="score-chip">Skor: <b id="quizScore">0</b></span></div><div class="quiz-track"><div id="quizProgressFill"></div></div><span class="question-label" id="questionLabel">ARTI KATA</span><h2 id="questionWord">beautiful</h2><button class="sound-word" id="quizSpeak">🔊 Dengarkan pengucapan</button><div class="answer-grid" id="answerGrid"></div><div class="quiz-feedback" id="quizFeedback" aria-live="polite"></div><button class="primary-btn quiz-next" id="quizNext" disabled>Soal berikutnya →</button></div>
+        <div class="quiz-result panel" id="quizResult" hidden><div class="result-icon">🏆</div><span class="eyebrow">QUIZ COMPLETED</span><h2 id="resultTitle">Well done!</h2><div class="result-score"><strong id="resultScore">8/10</strong><span>jawaban benar</span></div><p id="resultMessage"></p><button class="primary-btn" id="retryQuiz">Coba lagi</button><button class="outline-btn" id="backQuiz">Kembali ke pengaturan</button></div>
+      </section>
+
+      <section class="page" id="verbsPage">
+        <div class="page-intro"><div><span class="eyebrow">IRREGULAR & REGULAR VERBS</span><h2>Verb Forms</h2><p>Pelajari perubahan kata kerja V1, V2, V3, dan V-ing seperti yang tercantum dalam buku.</p></div><span class="mini-badge">95 verbs</span></div>
+        <div class="filter-bar"><div class="search-wrap"><span>⌕</span><input id="verbSearch" type="search" placeholder="Cari kata kerja..."></div><select id="verbSort"><option value="az">Urutkan A–Z</option><option value="za">Urutkan Z–A</option></select></div>
+        <div class="word-table-wrap"><table class="word-table verb-table"><thead><tr><th>V1 (BASE)</th><th>V2 (PAST)</th><th>V3 (PAST PARTICIPLE)</th><th>V-ING</th><th>AKSI</th></tr></thead><tbody id="verbRows"></tbody></table><div id="verbEmpty" class="empty-state" hidden>Kata kerja tidak ditemukan.</div></div>
+      </section>
+
+      <section class="page" id="savedPage">
+        <div class="page-intro"><div><span class="eyebrow">YOUR PERSONAL COLLECTION</span><h2>Kata favorit ♡</h2><p>Kumpulan kata yang kamu simpan agar lebih mudah diulang.</p></div><span class="mini-badge" id="savedTotal">0 kata</span></div>
+        <div class="word-table-wrap"><table class="word-table"><thead><tr><th>ENGLISH</th><th>ARTI INDONESIA</th><th>KATEGORI</th><th>AKSI</th></tr></thead><tbody id="savedRows"></tbody></table><div id="savedEmpty" class="empty-state">Belum ada kata favorit. Simpan kata dari halaman Belajar Kosakata.</div></div>
+      </section>
+      <footer class="footer">Vocabulary Master Book • Part of Speech • Level A2 <span>Belajar mandiri, selangkah demi selangkah.</span></footer>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
